@@ -5,6 +5,7 @@
 #include "Swordsman.h"
 #include "Tank.h"
 #include "Assassin.h"
+#include "Weopon.h"
 using namespace std;
 
 int main() {
@@ -38,8 +39,28 @@ int main() {
 
 
 
-	delete name;
+	
+	cout << endl << endl << endl;
 
+
+	if (className == "Mage"){
+		cout << "Earth-Wand/Ice-Wand/Fire-Wand/Lightning-Wand" << endl;
+	}
+	else if (className == "Swordsman"){
+		cout << "Great-Sword/Katana/Cutlass/Long-Sword" << endl;
+	}
+	else if (className == "Assassin"){
+		cout << "Dagger/Bow'n Arrow/Pistol/Throwing-Knife" << endl;
+	}
+	else if (className == "Tank"){
+		cout << "Two-Handed-Sword/Battle-Axe/Heavy-WarHammer/Mace" << endl;
+	}
+
+	string w;
+	cout << "Choose your weopon" << " ";
+	cin >> w;
+
+	delete name;
 	
 
 
