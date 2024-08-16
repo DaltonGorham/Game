@@ -3,13 +3,6 @@
 
 
 
-
-
-
-
-
-
-
 class Assassin : public ClassType {
 public:
 	Assassin() : ClassType("Assassin", 50, 90, 400) {}
