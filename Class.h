@@ -1,5 +1,7 @@
 #pragma once
+#include "Weapon.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -18,4 +20,5 @@ public:
 	virtual int getStrength() { return m_Strength; }
 	virtual int getHealth() { return m_Health; }
 	static ClassType* createClass(string& className);
+	static ClassType* selectClass(Console& ui);
 };

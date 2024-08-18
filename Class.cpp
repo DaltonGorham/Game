@@ -3,6 +3,7 @@
 #include "Swordsman.h"
 #include "Tank.h"
 #include "Assassin.h"
+#include "ConsoleUi.h"
 
 
 
@@ -25,3 +26,18 @@
 		return nullptr;
 	}
 }
+
+
+ClassType* ClassType::selectClass(Console& ui) {
+    ClassType* name = nullptr;
+    do {
+        std::string className = ui.getClassName();
+        name = ClassType::createClass(className);
+        if (name == nullptr) {
+            std::cout << "Invalid class name. Try again." << std::endl;
+        }
+    } while (name == nullptr);
+    return name;
+}
+
+
