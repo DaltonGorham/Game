@@ -41,3 +41,30 @@ ClassType* ClassType::selectClass(Console& ui) {
 }
 
 
+ClassType* ClassType::generateComputerClass(){
+	int randomClass = rand() % 4;
+
+	switch(randomClass){
+		case 1: return new Swordsman();
+		break;
+		case 2: return new Mage();
+		break;
+		case 3: return new Tank();
+		break;
+		case 4: return new Assassin();
+		break;
+	}
+	return nullptr;
+}
+
+
+ostream& operator<<(ostream& strm, ClassType championClass){
+	return strm << "Class: " << championClass.getName() << "\n"
+	<< "Mana: " << championClass.getMana() << "\n"
+	<< "Strength: " << championClass.getStrength() << "\n"
+	<< "Health: " << championClass.getHealth() << "\n";
+}
+
+
+
+

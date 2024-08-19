@@ -1,5 +1,5 @@
 #pragma once
-#include "Weapon.h"
+#include "ConsoleUi.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,4 +21,6 @@ public:
 	virtual int getHealth() { return m_Health; }
 	static ClassType* createClass(string& className);
 	static ClassType* selectClass(Console& ui);
+	static ClassType* generateComputerClass();
+	friend ostream& operator<<(ostream& strm, ClassType className);
 };

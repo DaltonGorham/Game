@@ -23,6 +23,14 @@ map<string, WeaponAttributes> Weapon::weaponAttributes = {
 };
 
 
+vector<string> Weapon::mage = {"Earth-Wand", "Ice-Wand", "Fire-Wand", "Lightning-Wand"};
+
+vector<string> Weapon::swordsman = {"Great-Sword", "Katana", "Cutlass", "Long-Sword"};
+
+vector<string> Weapon::assassin = {"Dagger", "Bow", "Pistol", "Throwing-Knife"};
+
+vector<string> Weapon::tank = {"Two-Handed-Sword", "Battle-Axe", "Heavy-WarHammer", "Mace"};
+
 
 
 Weapon* Weapon:: createWeapon(string& weapon){
@@ -52,3 +60,29 @@ Weapon* Weapon::selectWeapon(Console& ui) {
     } while (weapon == nullptr);
     return weapon;
 }
+
+string Weapon::generateComputerWeapon(ClassType* className ){
+  int randomWeapon = rand() % 4;
+  if (className->getName() == "Mage"){
+    return mage[randomWeapon];
+  }
+  else if (className->getName() == "Swordsman"){
+    return swordsman[randomWeapon];
+  }
+  else if (className->getName() == "Tank"){
+    return tank[randomWeapon];
+  }
+  else{
+    return assassin[randomWeapon];
+  }
+  return "No Weapon Found...";
+}
+
+
+ostream& operator<<(ostream& strm, Weapon& weapon){
+	return strm << "Weapon: " << weapon.getName() << "\n"
+	<< "Damage: " << weapon.getDamage() << "\n"
+	<< "Mana-Cost: " << weapon.getManaCost() << "\n";
+}
+
+

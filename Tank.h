@@ -8,7 +8,7 @@ class Tank : public ClassType {
 protected:
 
 public:
-	Tank() : ClassType("Mage", 30, 20, 800) {}
+	Tank() : ClassType("Tank", 30, 20, 800) {}
 	int getMana()override { return m_Mana; }
 	int getStrength()override { return m_Strength; }
 	int getHealth()override { return m_Health; }

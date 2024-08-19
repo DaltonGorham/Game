@@ -1,17 +1,13 @@
 #include <iostream>
 #include <string>
-#include "Class.h"
-#include "Mage.h"
-#include "Swordsman.h"
-#include "Tank.h"
-#include "Assassin.h"
-#include "Weapon.h"
-#include "ConsoleUi.h"
+#include <ctime>
+#include "mainHeaders.h"
 using namespace std;
 
 int main() {
 
 		Console ui;
+		srand(time(0));
 
 		ClassType* selectedClass = ClassType::selectClass(ui);
 		Console::clearScreen();
@@ -26,17 +22,24 @@ int main() {
 
 
 		cout << "Your Champion: " << endl;
-		cout << "Class: " << selectedClass->getName() << endl;
-		cout << "Mana: " << selectedClass->getMana() << endl;
-		cout << "Strength: " << selectedClass->getStrength() << endl;
-		cout << "Health: " << selectedClass->getHealth() << endl << endl;
+		cout << *selectedClass << *selectedWeapon;
 
-		cout << "Champion's Weapon: " << selectedWeapon->getName() << endl;
-		cout << "Damage: " << selectedWeapon->getDamage() << endl;
-		cout << "Mana-Cost: " << selectedWeapon->getManaCost() << endl;
+		cout << endl;
+		cout << "***VS****" << endl << endl;
+		ClassType* computerClass = ClassType::generateComputerClass();
+		string cpWeapon = Weapon::generateComputerWeapon(computerClass);
+		Weapon* computerWeapon = Weapon::createWeapon(cpWeapon);
+
+
+		cout << "Computer Champion: " << endl;
+		cout << *computerClass << *computerWeapon;
+
+
 
 		delete selectedClass;
 		delete selectedWeapon;
+		delete computerWeapon;
+		delete computerClass;
 	
 	
 

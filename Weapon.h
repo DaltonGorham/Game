@@ -1,5 +1,5 @@
 #pragma once
-#include "ConsoleUi.h"
+#include "Class.h"
 #include <iostream>
 #include <vector>
 #include <map>
@@ -13,6 +13,10 @@ struct WeaponAttributes{
 
 class Weapon{
   protected:
+    static vector<string> mage;
+    static vector<string> swordsman;
+    static vector<string> assassin;
+    static vector<string> tank;
     string m_Name;
     int m_Damage;
     int m_ManaCost;
@@ -24,5 +28,8 @@ class Weapon{
     int getManaCost(){return m_ManaCost;}
     static Weapon* createWeapon(string& weapon);
     static Weapon* selectWeapon(Console& ui);
+    static Weapon* getComputerWeapon();
+    static string generateComputerWeapon(ClassType* className);
     string getName(){return m_Name;}
+    friend ostream& operator<<(ostream& strm, Weapon& weapon);
 };
